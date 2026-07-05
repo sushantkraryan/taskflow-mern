@@ -1,9 +1,11 @@
 import axios from "axios";
 
+const baseURL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+
 // One shared axios instance, pre-configured with the backend base URL.
 // Every request we make will go through this.
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL,
 });
 
 // This is an axios "interceptor" — it runs before EVERY request goes out.
